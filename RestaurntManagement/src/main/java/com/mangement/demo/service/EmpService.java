@@ -54,7 +54,7 @@ public class EmpService {
 	 }
   
           public boolean deleteEmpByName(String name) {
-		 Optional<NHANVIEN> otk = empManagement.findByUserName(name);
+		 Optional<NHANVIEN> otk = empManagement.findByName(name);
 		 if(otk.isPresent()) {
 			 empManagement.deleteByName(name);return true;
 		 }else {
