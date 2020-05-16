@@ -29,14 +29,6 @@ public class EmpService {
 	 }
 	 
 	
-
-	 public boolean modifyEmpInfo(NHANVIEN nv, String id) {
-		 Optional<NHANVIEN> onv = empManagement.findById(id);
-		 if(onv.isPresent()) {
-			empManagement.save(nv); return true;
-		 }else return false;
-		  
-	 }
 	 public boolean modifyEmpByName(NHANVIEN nv, String username) {
 		 List<NHANVIEN> emp = empManagement.findByName(username);
 		 if(emp.size() == 1) {
@@ -44,15 +36,7 @@ public class EmpService {
 			 return true;
 		 }else return false;
 	 }
-	 public boolean deleteEmp(String id) {
-		 Optional<NHANVIEN> otk = empManagement.findById(id);
-		 if(otk.isPresent()) {
-			 empManagement.deleteById(id);return true;
-		 }else {
-			 return false;
-		 }
-	 }
-  
+	 
           public boolean deleteEmpByName(String name) {
 		 Optional<NHANVIEN> otk = empManagement.findByName(name);
 		 if(otk.isPresent()) {
