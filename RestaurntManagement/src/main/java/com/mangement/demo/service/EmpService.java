@@ -37,8 +37,8 @@ public class EmpService {
 		 }else return false;
 		  
 	 }
-	 public boolean modifyEmpByUsername(NHANVIEN nv, String username) {
-		 List<NHANVIEN> emp = empManagement.findByUserName(username);
+	 public boolean modifyEmpByName(NHANVIEN nv, String username) {
+		 List<NHANVIEN> emp = empManagement.findByName(username);
 		 if(emp.size() == 1) {
 			 empManagement.save(nv);
 			 return true;
