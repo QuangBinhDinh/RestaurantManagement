@@ -16,7 +16,11 @@ public interface EmpManagement extends JpaRepository<NHANVIEN, String> {
 	 
 	 @Modifying
 	 @Query(value = "update NHANVIEN set hoten= :hoten, ngaysinh= to_date(:ngaysinh,'DD-MON-YY'), diachi= :diachi,"
-	 		+ "sdt= :sdt, email= :email, tk_nganhang= :nganhang where tk= :username" , nativeQuery=true)
-	 public void updateEmpByUserame(@Param("hoten") String hoten, @Param("ngaysinh") String ns, @Param("diachi") String dc,
+	 		+ "sdt= :sdt, email= :email, tk_nganhang= :nganhang where hoten= :username" , nativeQuery=true)
+	 public void updateEmpByName(@Param("hoten") String hoten, @Param("ngaysinh") String ns, @Param("diachi") String dc,
 			 @Param("sdt") long sdt, @Param("nganhang") long tknh, @Param("username") String user);
+
+         @Modifying
+         @Query(value ="delete from NHANVIEN where hoten :=name", nativeQuery =true)
+         public void deleteEmpByName(@Param("name") String name);
 }
