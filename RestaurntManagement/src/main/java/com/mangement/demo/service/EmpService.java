@@ -52,4 +52,14 @@ public class EmpService {
 			 return false;
 		 }
 	 }
+  
+          public boolean deleteEmpByName(String name) {
+		 Optional<NHANVIEN> otk = empManagement.findByUserName(name);
+		 if(otk.isPresent()) {
+			 empManagement.deleteByName(name);return true;
+		 }else {
+			 return false;
+		 }
+	 }
+
 }
