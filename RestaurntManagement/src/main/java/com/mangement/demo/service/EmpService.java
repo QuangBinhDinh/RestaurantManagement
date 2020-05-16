@@ -22,17 +22,12 @@ public class EmpService {
 		 //tra ve 1 nhanvien theo id tra ve null neu k tim thay
 	 }
 	
-	/**
+	
 	 
-	 * public boolean addEmployee(NHANVIEN nv, String username) {
-		//truong hop tim thay username cua acc thi add tai khoan vao nhan vien qua ham setAccount 
-		 if(accManagement.findById(username).isPresent()) {
-			 nv.setAccount(accManagement.findById(username).get());
-			 empManagement.save(nv); return true;
-		 }else return false;
-		 
+	 public void addEmp (NHANVIEN nv) {
+                 empManagement.save(nv) 
 	 }
-	 */
+	 
 	
 	 
 	 public boolean modifyEmpInfo(NHANVIEN nv, String id) {
