@@ -11,9 +11,6 @@ public interface EmpManagement extends JpaRepository<NHANVIEN, String> {
 	 @Query(value = "select * from NHANVIEN where hoten = :name ", nativeQuery= true)
      public List<NHANVIEN> findByName(@Param("name") String name);
 	 
-	 @Query(value = "select * from NHANVIEN where tk = :username ", nativeQuery= true)
-     public List<NHANVIEN> findByUserName(@Param("username") String name);
-	 
 	 @Modifying
 	 @Query(value = "update NHANVIEN set hoten= :hoten, ngaysinh= to_date(:ngaysinh,'DD-MON-YY'), diachi= :diachi,"
 	 		+ "sdt= :sdt, email= :email, tk_nganhang= :nganhang where hoten= :username" , nativeQuery=true)
