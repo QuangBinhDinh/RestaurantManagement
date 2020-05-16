@@ -28,7 +28,7 @@ public class EmpController {
 	
 	
 	@PutMapping("/modify/{name}")
-	public ResponseEntity<?> updateEmpInfo(@RequestBody NHANVIEN nv, @PathVariable("name")String username){
+	public ResponseEntity<?> updateEmpInfo( @PathVariable("name")String username){
 		if(empService.modifyEmpByUsername(nv, username)) {
 			return new ResponseEntity<String>("Info modified !", HttpStatus.OK);
 		}else return new ResponseEntity<String>("Employee not found !", HttpStatus.NOT_FOUND);
