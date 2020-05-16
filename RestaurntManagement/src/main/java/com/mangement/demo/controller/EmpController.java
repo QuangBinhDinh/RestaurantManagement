@@ -18,15 +18,13 @@ public class EmpController {
 		return new ResponseEntity<List<NHANVIEN>>(empService.getAllEmp(),HttpStatus.OK);
 	}
 	
-	/**
-	 @PostMapping("/add/{user}")//ham nay them thong tin 1 nhan vien gan voi 1 account trc do
-	 public ResponseEntity<String> addEmployee(@RequestBody NHANVIEN nv, @PathVariable("user")String username){
-		if(empService.addEmployee(nv, username)) {
-			return new ResponseEntity<String>("Account added!",HttpStatus.OK);	
-		}else return new ResponseEntity<String>("Not found username",HttpStatus.NOT_FOUND);
+	
+	 @PostMapping("/add/")//ham nay them thong tin 1 nhan vien gan voi 1 account trc do
+	 public ResponseEntity<NHANVIEN>  addEmployee(@RequestBody NHANVIEN nv){
+		return new ResponseEntity<NHANVIEN>(nv,HttpStatus.OK);
 		
 	}
-	 */
+	 
 	
 	
 	@PutMapping("/modify/{name}")
@@ -35,4 +33,11 @@ public class EmpController {
 			return new ResponseEntity<String>("Info modified !", HttpStatus.OK);
 		}else return new ResponseEntity<String>("Employee not found !", HttpStatus.NOT_FOUND);
 	}
+
+        @DeleteMaping("del/{name}")
+        public ResponseEntity<String> deleteEmpByName(@RequestBody NHANVIEN nv, @PathVariable("name") String name){
+              if(empService.deleteEmpByName(name)){
+                   return new ResponseEntity<String>("Employee deleted",HtttpStatus.OK);
+               }else return new ResponseEntity<String>("Employee not found !", HttpStatus.NOT_FOUND);
+         }
 }
