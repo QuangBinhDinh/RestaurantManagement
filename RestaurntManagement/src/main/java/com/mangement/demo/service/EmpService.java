@@ -25,11 +25,11 @@ public class EmpService {
 	
 	 
 	 public void addEmp (NHANVIEN nv) {
-                 empManagement.save(nv) 
+                 empManagement.save(nv); 
 	 }
 	 
 	
-	 
+
 	 public boolean modifyEmpInfo(NHANVIEN nv, String id) {
 		 Optional<NHANVIEN> onv = empManagement.findById(id);
 		 if(onv.isPresent()) {
@@ -40,7 +40,7 @@ public class EmpService {
 	 public boolean modifyEmpByUsername(NHANVIEN nv, String username) {
 		 List<NHANVIEN> emp = empManagement.findByUserName(username);
 		 if(emp.size() == 1) {
-			 
+			 empManagement.save(nv);
 			 return true;
 		 }else return false;
 	 }
